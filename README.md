@@ -2,7 +2,7 @@
 slug: index
 sidebar_position: 4
 enableComments: true
-# displayed_sidebar: lazerSidebar
+displayed_sidebar: lazerSidebar
 ---
 
 # osu!lazer 指南
