@@ -2,11 +2,9 @@
 enableComments: true
 ---
 
-# 从零开始的 osu!lazer 入门指南
+# 引言
 
 ![osu!lazer Logo](https://github.com/ppy/osu/raw/master/assets/lazer.png)
-
-## 引言
 
 **osu!lazer** 是 osu! 的下一个重大更新。根据 [ppy](https://github.com/ppy) 的说法，osu!lazer 是近几年来 osu! 开发团队工作的结晶。他们从零开始重构了 Lazer，并且添加了很多有用或者有意思的功能。
 
