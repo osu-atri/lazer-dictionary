@@ -4,6 +4,14 @@ on:
   push:
     branches: 
       - main
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - edited
 
 jobs:
   update:
@@ -31,13 +39,20 @@ jobs:
       - name: Authenticate GitHub CLI
         run: gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
 
-      - name: Commit
+      - name: Commit Setup
         run: |
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions - update submodules"
+
+      - name: Commit Locally
+        run: |
           git checkout -b update-submodules
           git add --all
           git commit -m "Update submodules" || echo "No changes to commit"
+
+      - name: Pull & Push to Remote
+        run: |
+          git pull origin update-submodules --rebase
           git pull origin main --rebase
           git push origin update-submodules
 
