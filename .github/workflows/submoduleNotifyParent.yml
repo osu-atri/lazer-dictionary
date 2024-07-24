@@ -38,6 +38,7 @@ jobs:
           git checkout -b update-submodules
           git add --all
           git commit -m "Update submodules" || echo "No changes to commit"
+          git pull origin main --rebase
           git push origin update-submodules
 
       - name: Create Pull Request
