@@ -55,6 +55,12 @@ jobs:
           git pull origin main --rebase
           git push origin update-submodules
 
+      - name: Generate Commit Messages
+        id: commit_messages
+        run: |
+          COMMIT_MESSAGES=$(git log --oneline origin/main..HEAD)
+          echo "::set-output name=messages::$COMMIT_MESSAGES"
+
       - name: Create Pull Request
         run: |
-          gh pr create --title "Update submodules" --body "This PR updates the submodules." --base main --head update-submodules
+          gh pr create --title "Update submodules" --body "${{ steps.commit_messages.outputs.messages }}" --base main --head update-submodules
