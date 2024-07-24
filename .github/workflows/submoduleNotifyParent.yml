@@ -1,0 +1,41 @@
+name: Send submodule updates to parent repo
+
+on:
+  push:
+    branches: 
+      - main
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with: 
+          repository: osu-atri/osu-dictionary
+          token: ${{ secrets.PRIVATE_TOKEN_GITHUB }}
+          submodules: true
+
+      - name: Pull & update submodules recursively
+        run: |
+          git submodule update --init --recursive
+          git submodule update --recursive --remote
+
+      - name: Install GitHub CLI
+        run: sudo apt-get install gh
+
+      - name: Authenticate GitHub CLI
+        run: gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
+
+      - name: Commit
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions - update submodules"
+          git checkout -b update-submodules
+          git add --all
+          git commit -m "Update submodules" || echo "No changes to commit"
+          git push origin update-submodules
+
+      - name: Create Pull Request
+        run: |
+          gh pr create --title "Update submodules" --body "This PR updates the submodules." --base main --head update-submodules
