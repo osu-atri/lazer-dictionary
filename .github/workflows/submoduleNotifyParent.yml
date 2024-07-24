@@ -47,12 +47,12 @@ jobs:
       - name: Commit Locally
         run: |
           git checkout -b update-submodules
+          git pull origin update-submodules
           git add --all
           git commit -m "Update submodules" || echo "No changes to commit"
 
       - name: Pull & Push to Remote
         run: |
-          git pull origin update-submodules --rebase
           git pull origin main --rebase
           git push origin update-submodules
 
