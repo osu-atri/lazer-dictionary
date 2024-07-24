@@ -63,4 +63,4 @@ jobs:
 
       - name: Create Pull Request
         run: |
-          gh pr create --title "Update submodules" --body "${{ steps.commit_messages.outputs.messages }}" --base main --head update-submodules
+          gh pr create --title "Update lazer-wiki" --body "${{ steps.commit_messages.outputs.messages }}" --base main --head update-submodules
