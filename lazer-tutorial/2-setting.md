@@ -238,7 +238,16 @@ enableComments: true
 
 ## 游戏模式
 
-游戏模式设置组可以调整不同游戏模式下Lazer的表现。如果你安装了自定义模式 (Ruleset)，那么对应的设置也会出现在这里。有关Ruleset的更多内容详见<!-- TODO -->（待补充）。
+游戏模式设置组可以调整不同游戏模式下Lazer的表现。如果你安装了自定义模式 (Ruleset)，那么对应的设置也会出现在这里。
+
+
+:::info
+
+你可以在[**这里**](/docs/lazer/ruleset-man.md)阅读更多有关Ruleset的内容
+
+:::
+
+<br />
 
 ![游戏模式设置列表](img/gameplay-list.png)
 
