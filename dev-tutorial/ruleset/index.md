@@ -2,7 +2,7 @@
 enableComments: true
 ---
 
-# Ruleset 开发 - 引言
+# Ruleset 开发
 
 我们在 osu!lazer 入门指南中曾大概提过关于 Ruleset 的事情，相信玩过 osu!lazer 的大家应该也有一些基本的了解。
 
