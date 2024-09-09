@@ -29,7 +29,7 @@ enableComments: true
 
 :::info 作者信息
 
-- 复予（GitHub: [CloneWith](https://github.com/CloneWith)），萌新
+- 复予（GitHub: [CloneWith](https://github.com/CloneWith)），杂鱼萌新一枚\~
 
 同时在此感谢在 osu!lazer 改版的开发过程中，帮到我们的所有人！
 
