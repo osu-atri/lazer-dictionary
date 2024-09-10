@@ -113,7 +113,7 @@ namespace osu.Game.Rulesets.Ottoman
 
 ## 属性
 
-### ShortName
+### `ShortName`
 
 ```csharp
 public override string ShortName => "ottoman";
@@ -121,7 +121,7 @@ public override string ShortName => "ottoman";
 
 `ShortName` 可以理解为 Ruleset 的名称，会在鼠标悬停在顶栏的对应 Ruleset 图标上时，作为“标题”显示（当然没有相对应的 `LongName` 就是了）。
 
-### Description
+### `Description`
 
 ```csharp
 public override string Description => "Play with Short Dolly?";
@@ -129,7 +129,7 @@ public override string Description => "Play with Short Dolly?";
 
 `Description` 会作为“副标题”显示在 Ruleset 信息的第二行，起到描述说明的作用。
 
-### PlayingVerb
+### `PlayingVerb`
 
 ```csharp
 public override string PlayingVerb => "Showing Dolly";
@@ -137,7 +137,7 @@ public override string PlayingVerb => "Showing Dolly";
 
 `PlayingVerb` 会在玩家游玩这个 Ruleset 时，显示在`正在游玩`面板、顶栏右侧个人档案等等的用户卡片上（例如玩 osu!std 时会显示的 `Clicking Circles`）。
 
-### RulesetAPIVersionSupported
+### `RulesetAPIVersionSupported`
 
 ```csharp
 // Leave this line intact. It will bake the correct version into the ruleset on each build/release.
@@ -158,7 +158,7 @@ public override string RulesetAPIVersionSupported => CURRENT_RULESET_API_VERSION
 
 ## 方法
 
-### GetModsFor()
+### `GetModsFor()`
 
 ```csharp
 public override IEnumerable<Mod> GetModsFor(ModType type)
@@ -213,7 +213,7 @@ public override IEnumerable<Mod> GetModsFor(ModType type)
 
 获取 Ruleset 可以使用的模组，按不同的模组分类呈现在选歌页面可以唤起的模组菜单中。此部分的更多内容将在单独的文章<!-- TODO -->中展示。
 
-### GetDefaultKeyBindings()
+### `GetDefaultKeyBindings()`
 
 ```csharp
 public override IEnumerable<KeyBinding> GetDefaultKeyBindings(int variant = 0) => new[]
@@ -233,7 +233,7 @@ public override IEnumerable<KeyBinding> GetDefaultKeyBindings(int variant = 0) =
 
 :::
 
-### CreateIcon()
+### `CreateIcon()`
 
 ```csharp
 public override Drawable CreateIcon() => new SpriteText
@@ -251,7 +251,7 @@ public override Drawable CreateIcon() => new SpriteText
 
 除此之外，你也可以选择使用 `FontAwesome`（osu!lazer 有引用这个图标库），或者使用材质库（`TextureStore`，这样就能够使用自定义图像）中的东西来显示图标。
 
-### CreateDrawableRulesetWith()
+### `CreateDrawableRulesetWith()`
 
 ```csharp
 public override DrawableRuleset CreateDrawableRulesetWith(IBeatmap beatmap, IReadOnlyList<Mod> mods = null) => new DrawableOttomanRuleset(this, beatmap, mods);
@@ -261,7 +261,7 @@ public override DrawableRuleset CreateDrawableRulesetWith(IBeatmap beatmap, IRea
 
 这个函数需要带上谱面与模组设置作为参数，以便游戏界面进一步处理。
 
-### CreateBeatmapConverter()
+### `CreateBeatmapConverter()`
 
 ```csharp
 public override IBeatmapConverter CreateBeatmapConverter(IBeatmap beatmap) => new OttomanBeatmapConverter(beatmap, this);
@@ -269,7 +269,7 @@ public override IBeatmapConverter CreateBeatmapConverter(IBeatmap beatmap) => ne
 
 用于转换已有谱面到本 Ruleset 的形式（物件等等），需要带上谱面作为参数，用于转换。
 
-### CreateDifficultyCalculator()
+### `CreateDifficultyCalculator()`
 
 ```csharp
 public override DifficultyCalculator CreateDifficultyCalculator(IWorkingBeatmap beatmap) => new OttomanDifficultyCalculator(RulesetInfo, beatmap);
