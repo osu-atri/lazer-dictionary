@@ -25,7 +25,7 @@ enableComments: true
 - Ottoman 使用的是**水平滚动式**布局（也就是与太鼓之类的差不多）
 - Ottoman 实现了一些常见的模组
 
-```csharp
+```csharp title="osu.Game.Rulesets.Ottoman/OttomanRuleset.cs"
 namespace osu.Game.Rulesets.Ottoman
 {
     public class OttomanRuleset : Ruleset

@@ -235,9 +235,47 @@ public virtual Type[] IncompatibleMods => Array.Empty<Type>();
 
 如果要让一个模组在模组设置页面中显示，需要在 Ruleset 类的 [`GetModsFor()`](./basic#getmodsfor) 函数中进行引用。
 
+这个函数大体上使用的是一个 `switch` 语句块，将不同分类 (`case`) 下的不同模组都列举出来，作为一个模组数组 (`new Mod[]`) 返回。
+
+为了避免分类改变或新增导致的意外情况，建议在这里对其他情况 (`default`) 返回空数组。
+
+```csharp title="osu.Game.Rulesets.Ottoman/OttomanRuleset.cs"
+public override IEnumerable<Mod> GetModsFor(ModType type)
+{
+    // Here goes mods of all categories
+    switch (type)
+    {
+        case ModType.DifficultyReduction:
+            return new Mod[]
+            {
+                new OttomanModEasy(),
+                new OttomanModNoFail(),
+                new MultiMod(new OttomanModHalfTime(), new OttomanModDaycore()),
+            };
+
+        default:
+            return Array.Empty<Mod>();
+    }
+}
+```
+
+## 引入模组
+
+在初步开发一个 Ruleset 时，你也许想先把一些现有的模组搬到这边来。
+
+对于常规的 Ruleset，我们可以这样引入模组：
+
+- 会先考虑引入一些常规、通用的模组：Half Time 等调速模组
+- 然后引入简单处理的模组：Easy 等调参模组
+- 再引入需要特殊处理的模组：Autoplay 等 Ruleset 强相关的模组（为啥与上面分开来？因为需要的处理**太多惹**）
+
+### 引入方式
+
 对于全局性的（换句话说，与 Ruleset 无关的）模组，可以直接引用 `osu.Game` 中的现有类。
 
 如果不是这样，或者说你想对它进行进一步的修改（小到描述文本，大到作用逻辑），就需要在这个项目中自己写一个类，并继承已有的模组。
+
+对于以上这些，可以看看下面的[实例](#示例)。
 
 代码中的 `MultiMod` 用来将多个模组并入一组。
 
@@ -252,5 +290,48 @@ public virtual Type[] IncompatibleMods => Array.Empty<Type>();
 ## 示例
 
 来！
+
+### 套用原有模组
+
+在 Ottoman Ruleset 中引入 Sudden Death 与 Perfect 模组，并更改其描述。
+
+```csharp title="osu.Game.Rulesets.Ottoman/Mods/OttomanModSuddenDeath.cs"
+using osu.Game.Rulesets.Mods;
+
+namespace osu.Game.Rulesets.Ottoman.Mods
+{
+    // Create this class based on ModSuddenDeath
+    // Same for Perfect
+    public class OttomanModSuddenDeath : ModSuddenDeath
+    {
+        // Use override
+        public override LocalisableString Description =>
+          @"一言不合，就阐释你的梦。";
+    }
+}
+```
+
+在 Ruleset 类中做这样的更改：
+
+```csharp title="osu.Game.Rulesets.Ottoman/OttomanRuleset.cs"
+// Other content truncated...
+namespace osu.Game.Rulesets.Ottoman
+{
+    public class TyperRuleset : Ruleset
+    {
+        public override IEnumerable<Mod> GetModsFor(ModType type)
+        {
+            switch (type)
+            {
+                case ModType.DifficultyIncrease:
+                    return new Mod[]
+                    {
+                        new MultiMod(new TyperModSuddenDeath(), new TyperModPerfect()),
+                    }
+            }
+        }
+    }
+}
+```
 
 示例补充中...
