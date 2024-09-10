@@ -211,6 +211,8 @@ public override IEnumerable<Mod> GetModsFor(ModType type)
 }
 ```
 
+获取 Ruleset 可以使用的模组，按不同的模组分类呈现在选歌页面可以唤起的模组菜单中。此部分的更多内容将在单独的文章<!-- TODO -->中展示。
+
 ### GetDefaultKeyBindings()
 
 ```csharp
