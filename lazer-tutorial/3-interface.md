@@ -34,7 +34,7 @@ Lazer已经将网站的大多数功能嵌入进了游戏。你可以使用右侧
 | :-: | :-: | :-: |
 | ![新闻](img/news.png) | 新闻 | 看看 osu! 社区最近发生了什么 |
 | ![更新日志](img/changelog-b.png) | 更新日志 | osu! 最近的更新变化 |
-| ![osu!wiki](img/wiki.png) | osu!wiki | 社区的共享知识库（在 Lazer 中只能查看英文） |
+| ![osu!wiki](img/wiki.png) | osu!wiki | 社区的共享知识库 |
 | ![排名](img/ranking.png) | 排行榜 | 看看现在谁最强 |
 | ![谱面列表](img/beatmap.png) | 谱面列表 | 也可以按下 `Ctrl + B` |
 | ![聊天](img/chat.png) | 聊天面板 | 也可以按下 `F8` |
