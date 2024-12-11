@@ -2,6 +2,14 @@
 enableComments: true
 ---
 
+import slidersneakin from './img/slider-sneakin.gif';
+import slidernosneakin from './img/slider-nosneakin.gif';
+import slidersneakout from './img/slider-sneakout.gif';
+import slidernosneakout from './img/slider-nosneakout.gif';
+import bordernone from './img/border-none.jpg';
+import bordercorner from './img/border-corner.jpg';
+import borderfull from './img/border-full.jpg';
+
 # Part 2: 游戏设置
 
 在开始游戏前，推荐您先调整好你自己喜欢的游戏习惯。可以使用以下方式，打开设置面板：
@@ -236,6 +244,8 @@ enableComments: true
 
   ![回放控制面板](img/replay-setting.png)
 
+  可以使用`Ctrl + H`快捷键在播放回放界面快速更改此设置。  
+
 ## 游戏模式
 
 游戏模式设置组可以调整不同游戏模式下Lazer的表现。如果你安装了自定义模式 (Ruleset)，那么对应的设置也会出现在这里。
@@ -256,20 +266,30 @@ enableComments: true
 - **“渐入滑条”** 决定是否启用滑条平滑进入动画。
 - **“渐出滑条”** 决定是否启用滑条平滑结束动画。
 
-  ![渐入滑条 开](img/slider-sneakin.gif "渐入滑条 开")![渐入滑条 关](img/slider-nosneakin.gif "渐入滑条 关")
 
-  ![渐出滑条 开](img/slider-sneakout.gif "渐出滑条 开")![渐出滑条 关](img/slider-nosneakout.gif "渐出滑条 关")
+<table>
+    <tr>
+        <td><img src={slidersneakin} />渐入滑条 开</td>
+        <td><img src={slidernosneakin} />渐入滑条 关</td>
+    </tr>
+    <tr>
+        <td><img src={slidersneakout} />渐出滑条 开</td>
+        <td><img src={slidernosneakout} />渐出滑条 关</td>
+    </tr>
+</table>
 
   如果你喜欢stable的滑条显示逻辑，则可将“渐出滑条”关闭。
 - **“游戏区域边框样式”** 决定是否在游玩过程中显示区域边框。
 
   ![边框设置](img/border-setting.png)
 
-  ![不显示](img/border-none.jpg "不显示")
-
-  ![仅显示边框角](img/border-corner.jpg "仅显示边框角")
-
-  ![全边框](img/border-full.jpg "全边框")
+<table>
+    <tr>
+        <td><img src={bordernone} />不显示</td>
+        <td><img src={bordercorner} />仅显示边框角</td>
+        <td><img src={borderfull} />全边框</td>
+    </tr>
+</table>
 
   在“全边框”和“仅显示边框角”两个选项之间切换甚至可以欣赏到丝滑的动画。
 
